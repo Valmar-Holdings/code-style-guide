@@ -6,6 +6,7 @@
         <link rel="canonical" href="{{ $page->getUrl() }}">
         <meta name="description" content="{{ $page->description }}">
         <title>{{ $page->title }}</title>
+        <link rel="home" href="{{ $page->baseUrl }}">
         <link rel="stylesheet" href="{{ url(mix('css/main.css', 'assets/build')) }}">
         <script defer src="{{ url(mix('js/main.js', 'assets/build')) }}"></script>
     </head>

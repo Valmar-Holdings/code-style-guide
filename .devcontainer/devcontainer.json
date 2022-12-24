@@ -63,7 +63,7 @@
         "m4ns0ur.base64"
     ],
     "remoteUser": "sail",
-    "postCreateCommand": "chown -R 1000:1000 /var/www/html && composer update",
+    "postCreateCommand": "chown -R 1000:1000 /var/www/html && composer update && npm install && npm run prod",
     "forwardPorts": [
         80
     ],

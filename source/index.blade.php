@@ -11,7 +11,7 @@
             <p class="text-lg">Give your documentation a boost with Jigsaw. <br class="hidden sm:block">Generate elegant, static docs quickly and easily.</p>
 
             <div class="flex my-10">
-                <a href="/docs/getting-started" title="{{ $page->siteName }} getting started" class="px-6 py-2 mr-4 font-normal text-white bg-blue-500 rounded hover:bg-blue-600 hover:text-white">Get Started</a>
+                <a href="{{ url("/docs/getting-started") }}" title="{{ $page->siteName }} getting started" class="px-6 py-2 mr-4 font-normal text-white bg-blue-500 rounded hover:bg-blue-600 hover:text-white">Get Started</a>
 
                 <a href="https://jigsaw.tighten.co" title="Jigsaw by Tighten" class="px-6 py-2 font-normal text-blue-900 bg-gray-400 rounded hover:bg-gray-600 hover:text-white">About Jigsaw</a>
             </div>

@@ -24,7 +24,7 @@
         <title>{{ $page->siteName }}{{ $page->title ? ' | ' . $page->title : '' }}</title>
 
         <link rel="home" href="{{ $page->baseUrl }}">
-        <link rel="icon" href="/favicon.ico">
+        <link rel="icon" href="{{ url("/favicon.ico") }}">
 
         @stack('meta')
 
@@ -45,7 +45,7 @@
         <header class="flex items-center h-24 py-4 mb-8 bg-white border-b shadow" role="banner">
             <div class="container flex items-center px-4 mx-auto max-w-8xl lg:px-8">
                 <div class="flex items-center">
-                    <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
+                    <a href="{{ url("/") }}" title="{{ $page->siteName }} home" class="inline-flex items-center">
                         <img class="h-8 mr-3 md:h-10" src="{{ url("/assets/img/logo.svg") }}" alt="{{ $page->siteName }} logo" />
 
                         <h1 class="pr-4 my-0 text-lg font-semibold text-blue-900 md:text-2xl hover:text-blue-600">{{ $page->siteName }}</h1>

@@ -32,7 +32,7 @@
         @endif
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
+        <link rel="stylesheet" href="{{ url(mix('css/main.css', 'assets/build')) }}">
 
         @if ($page->docsearchApiKey && $page->docsearchIndexName)
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
@@ -40,18 +40,18 @@
 
     </head>
 
-    <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-800 leading-normal font-sans">
-        <header class="flex items-center shadow bg-white border-b h-24 mb-8 py-4" role="banner">
-            <div class="container flex items-center max-w-8xl mx-auto px-4 lg:px-8">
+    <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
+        <header class="flex items-center h-24 py-4 mb-8 bg-white border-b shadow" role="banner">
+            <div class="container flex items-center px-4 mx-auto max-w-8xl lg:px-8">
                 <div class="flex items-center">
                     <a href="/" title="{{ $page->siteName }} home" class="inline-flex items-center">
-                        <img class="h-8 md:h-10 mr-3" src="/assets/img/logo.svg" alt="{{ $page->siteName }} logo" />
+                        <img class="h-8 mr-3 md:h-10" src="/assets/img/logo.svg" alt="{{ $page->siteName }} logo" />
 
-                        <h1 class="text-lg md:text-2xl text-blue-900 font-semibold hover:text-blue-600 my-0 pr-4">{{ $page->siteName }}</h1>
+                        <h1 class="pr-4 my-0 text-lg font-semibold text-blue-900 md:text-2xl hover:text-blue-600">{{ $page->siteName }}</h1>
                     </a>
                 </div>
 
-                <div class="flex flex-1 justify-end items-center text-right md:pl-10">
+                <div class="flex items-center justify-end flex-1 text-right md:pl-10">
 
                     @if ($page->docsearchApiKey && $page->docsearchIndexName)
                         @include('_nav.search-input')
@@ -64,18 +64,18 @@
 
         </header>
 
-        <main role="main" class="w-full flex-auto">
+        <main role="main" class="flex-auto w-full">
 
             @yield('body')
 
         </main>
 
-        <script src="{{ mix('js/main.js', 'assets/build') }}"></script>
+        <script src="{{ url(mix('js/main.js', 'assets/build')) }}"></script>
 
         @stack('scripts')
 
-        <footer class="bg-white text-center text-sm mt-12 py-4" role="contentinfo">
-            <ul class="flex flex-col md:flex-row justify-center">
+        <footer class="py-4 mt-12 text-sm text-center bg-white" role="contentinfo">
+            <ul class="flex flex-col justify-center md:flex-row">
                 <li class="md:mr-2">
                     &copy; <a href="https://tighten.co" title="Tighten website">Tighten</a> {{ date('Y') }}.
                 </li>

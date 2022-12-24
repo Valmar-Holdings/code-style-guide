@@ -6,10 +6,10 @@
         <link rel="canonical" href="{{ $page->getUrl() }}">
         <meta name="description" content="{{ $page->description }}">
         <title>{{ $page->title }}</title>
-        <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
-        <script defer src="{{ mix('js/main.js', 'assets/build') }}"></script>
+        <link rel="stylesheet" href="{{ url(mix('css/main.css', 'assets/build')) }}">
+        <script defer src="{{ url(mix('js/main.js', 'assets/build')) }}"></script>
     </head>
-    <body class="text-gray-900 font-sans antialiased">
+    <body class="font-sans antialiased text-gray-900">
         @yield('body')
     </body>
 </html>

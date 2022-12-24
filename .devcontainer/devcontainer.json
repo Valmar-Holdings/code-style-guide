@@ -63,7 +63,15 @@
         "m4ns0ur.base64"
     ],
     "remoteUser": "sail",
-    "postCreateCommand": "./.devcontainer/postCreateCommand.sh",
+    "postCreateCommand": "chown -R 1000:1000 /var/www/html && composer update",
+    "forwardPorts": [
+        80
+    ],
+    "portsAttributes": {
+        "80": {
+            "label": "HTTP"
+        }
+    }
     // "runServices": [],
     // "shutdownAction": "none",
 }

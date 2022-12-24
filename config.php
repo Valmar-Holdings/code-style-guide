@@ -29,4 +29,7 @@ return [
     'url' => function ($page, $path) {
         return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
     },
+    "build" => [
+        "destination" => "docs",
+    ],
 ];

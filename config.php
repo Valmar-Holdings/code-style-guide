@@ -27,8 +27,9 @@ return [
         }
     },
     'url' => function ($page, $path) {
-        dump($page, $path);
-        return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
+        return Str::startsWith($path, 'http')
+            ? $path
+            : '/' . trimPath($path);
     },
     "build" => [
         "destination" => "docs",

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'baseUrl' => 'https://jigsaw-docs-template.tighten.co',
+    'baseUrl' => 'https://valmar-holdings.github.io/code-style-guide/',
     'production' => true,
 
     // DocSearch credentials

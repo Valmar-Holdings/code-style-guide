@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 return [
-    'baseUrl' => 'https://valmar-holdings.github.io/code-style-guide/',
+    'baseUrl' => 'http://localhost/',
     'production' => false,
     'siteName' => 'Docs Starter Template',
     'siteDescription' => 'Beautiful docs powered by Jigsaw',
@@ -27,6 +27,7 @@ return [
         }
     },
     'url' => function ($page, $path) {
+        dump($page, $path);
         return Str::startsWith($path, 'http') ? $path : '/' . trimPath($path);
     },
     "build" => [

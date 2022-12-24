@@ -8,7 +8,7 @@
         "genealabs/php-coding-standards": "dev-main@dev",
         "laravel/sail": "^1.16",
         "phpmd/phpmd": "^2.11",
-        "squizlabs/php_codesniffer": "^3.6"
+        "squizlabs/php_codesniffer": "dev-master@dev"
     },
     "autoload": {
         "psr-4": {

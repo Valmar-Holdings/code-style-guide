@@ -4,12 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Getting started with Jigsaw&#039;s docs starter template is as easy as 1, 2, 3.">
+        <meta name="description" content="Beautiful docs powered by Jigsaw">
 
         <meta property="og:site_name" content="Docs Starter Template"/>
-        <meta property="og:title" content="Getting Started | Docs Starter Template"/>
-        <meta property="og:description" content="Getting started with Jigsaw&#039;s docs starter template is as easy as 1, 2, 3."/>
-        <meta property="og:url" content="/docs/getting-started"/>
+        <meta property="og:title" content="Controllers | Docs Starter Template"/>
+        <meta property="og:description" content="Beautiful docs powered by Jigsaw"/>
+        <meta property="og:url" content="/docs/laravel/controllers"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -17,7 +17,7 @@
         <meta name="twitter:card" content="summary_large_image">
 
         
-        <title>Docs Starter Template | Getting Started</title>
+        <title>Docs Starter Template | Controllers</title>
 
         <link rel="home" href="">
         <link rel="icon" href="/favicon.ico">
@@ -84,7 +84,7 @@
             <li class="pl-4">
             
         <a href="/docs/laravel"
-            class="lvl0   nav-menu__item hover:text-blue-500"
+            class="lvl0 lvl0-active  nav-menu__item hover:text-blue-500"
         >
             Laravel
         </a>
@@ -139,7 +139,7 @@
             <li class="pl-4">
             
         <a href="/docs/laravel/controllers"
-            class="lvl1   nav-menu__item hover:text-blue-500"
+            class="lvl1  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
         >
             Controllers
         </a>
@@ -259,74 +259,140 @@
         </nav>
 
         <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
-            <h1 id="getting-started">Getting Started</h1>
+            <h2>Purpose</h2>
 
-<p>This is a starter template for creating a beautiful, customizable documentation site for your project with minimal effort. You’ll only have to change a few settings and you’re ready to go.</p>
+<p>Controllers serve only two purposes:</p>
 
-<h2 id="getting-started-configuration">Configuration</h2>
+<ol>
+<li>Process a specific request, handled by a request object (see below).</li>
+<li>Return an appropriate response, handled by a response object (see below).</li>
+</ol>
 
-<p>As with all Jigsaw sites, configuration settings can be found in <code>config.php</code>; you can update the variables in that file with settings specific to your project. You can also add new configuration variables there to use across your site; take a look at the <a href="http://jigsaw.tighten.co/docs/site-variables/">Jigsaw documentation</a> to learn more.</p>
+<p>Controllers should contain no business logic. Instead, various types of business logic should be extracted out to:</p>
 
-<pre><code class="language-php">// config.php
-return [
-    'baseUrl' =&gt; 'https://my-awesome-jigsaw-site.com/',
-    'production' =&gt; false,
-    'siteName' =&gt; 'My Site',
-    'siteDescription' =&gt; 'Give your documentation a boost with Jigsaw.',
-    'docsearchApiKey' =&gt; '',
-    'docsearchIndexName' =&gt; '',
-    'navigation' =&gt; require_once('navigation.php'),
-];
+<ul>
+<li>form submission processing should be extracted to Form Request objects.</li>
+<li>JSON responses should be extracted to Resource objects.</li>
+<li>other business logic should be extracted to Response objects.</li>
+</ul>
+
+<h2>Structure</h2>
+
+<p>Controllers should only contain RESTful methods. If additional methods seem to be needed, a new RESTful controller with an appropriate name should be created to satisfy that need.</p>
+
+<h3>Single-Method Controllers</h3>
+
+<p>If the controller only has a single method, use <code>__invoke()</code>.</p>
+
+<pre><code class="language-php">&lt;?php namespace App\Http\Controllers;
+
+use Illuminate\View\View;
+
+class WelcomeController extends Controller
+{
+    public function __invoke() : View
+    {
+        return view('welcome');
+    }
+}
 </code></pre>
 
-<blockquote>
-  <p>Tip: This configuration file is also where you’ll define any "collections" (for example, a collection of the contributors to your site, or a collection of blog posts). Check out the official <a href="https://jigsaw.tighten.co/docs/collections/">Jigsaw documentation</a> to learn more.</p>
-</blockquote>
+<h2>Request Objects</h2>
 
-<hr />
+<ul>
+<li>All controller methods that accept data should validate the incoming data using Request objects</li>
+<li>All controller methods that accept data should process the incoming data in a <code>process()</code> method that returns whatever object necessary to continue the logic in the controller method. For example:</li>
+</ul>
 
-<h3 id="getting-started-adding-content">Adding Content</h3>
+<pre><code class="language-php">    public function store(CreateReport $request) : RedirectResponse
+    {
+        $search = $request-&gt;process();
 
-<p>You can write your content using a <a href="http://jigsaw.tighten.co/docs/content-other-file-types/">variety of file types</a>. By default, this starter template expects your content to be located in the <code>source/docs</code> folder. If you change this, be sure to update the URL references in <a href="/docs/navigation.php">navigation.php</a>.</p>
-
-<p><a href="/docs/navigation">Read more about navigation.</a></p>
-
-<p>The first section of each content page contains a YAML header that specifies how it should be rendered. The <code>title</code> attribute is used to dynamically generate HTML <code>title</code> and OpenGraph tags for each page. The <code>extends</code> attribute defines which parent Blade layout this content file will render with (e.g. <code>_layouts.documentation</code> will render with <code>source/_layouts/documentation.blade.php</code>), and the <code>section</code> attribute defines the Blade "section" that expects this content to be placed into it.</p>
-
-<pre><code class="language-yaml">---
-title: Navigation
-description: Building a navigation menu for your site
-extends: _layouts.documentation
-section: content
----
+        return redirect()-&gt;route('reports.show', ['addressSlug' =&gt; $search-&gt;address-&gt;slug]);
+    }
 </code></pre>
 
-<p><a href="https://jigsaw.tighten.co/docs/content-blade/">Read more about Jigsaw layouts.</a></p>
+<h2>Response Objects</h2>
 
-<hr />
+<p>Resource objects should be utilized to build up and return all data and objects required by the view to the view.</p>
 
-<h3 id="getting-started-adding-assets">Adding Assets</h3>
+<pre><code class="language-php">&lt;?php namespace App\Http\Controllers\Reports;
 
-<p>Any assets that need to be compiled (such as JavaScript, Less, or Sass files) can be added to the <code>source/_assets/</code> directory, and Laravel Mix will process them when running <code>npm run dev</code> or <code>npm run prod</code>. The processed assets will be stored in <code>/source/assets/build/</code> (note there is no underscore on this second <code>assets</code> directory).</p>
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Reports\Event as Request;
+use App\Http\Responses\Reports\Events\Csv;
+use Illuminate\Contracts\Support\Responsable;
 
-<p>Then, when Jigsaw builds your site, the entire <code>/source/assets/</code> directory containing your built files (and any other directories containing static assets, such as images or fonts, that you choose to store there) will be copied to the destination build folders (<code>build_local</code>, on your local machine).</p>
+class Event extends Controller
+{
+    public function index(Request $request) : Responsable
+    {
+        return new Csv(
+            $request-&gt;process(),
+            'CEEd Events Report.csv'
+        );
+    }
+}
+</code></pre>
 
-<p>Files that don't require processing (such as images and fonts) can be added directly to <code>/source/assets/</code>.</p>
+<pre><code class="language-php">&lt;?php namespace App\Http\Responses\Reports\Events;
 
-<p><a href="http://jigsaw.tighten.co/docs/compiling-assets/">Read more about compiling assets in Jigsaw using Laravel Mix.</a></p>
+use App\Http\Resources\BaseResourceCollection;
+use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Http\Response;
+use League\Csv\Writer;
+use SplTempFileObject;
 
-<hr />
+class Csv implements Responsable
+{
+    protected $downloadFilename;
+    protected $events;
 
-<h2 id="getting-started-building-your-site">Building Your Site</h2>
+    public function __construct(
+        BaseResourceCollection $events,
+        string $downloadFilename
+    ) {
+        $this-&gt;downloadFilename = $downloadFilename;
+        $this-&gt;events = $events;
+    }
 
-<p>Now that you’ve edited your configuration variables and know how to customize your styles and content, let’s build the site.</p>
+    /**
+     * @SuppressWarnings(PHPMD.StaticAccess)     
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     */
+    public function toResponse($request) : Response
+    {
+        $csv = Writer::createFromFileObject(new SplTempFileObject);
+        $csv-&gt;insertOne([
+            'Season',
+            'Starts At',
+            'Ends At',
+            'Program',
+            'Venue',
+            'Moderators',
+            'Musicians',
+        ]);
 
-<pre><code class="language-bash"># build static files with Jigsaw
-./vendor/bin/jigsaw build
+        $this-&gt;events-&gt;each(function ($event) use ($csv) {
+            $csv-&gt;insertOne([
+                $event-&gt;seasonName,
+                $event-&gt;starts_at,
+                $event-&gt;ends_at,
+                $event-&gt;programName,
+                $event-&gt;venueName,
+                $event-&gt;moderators-&gt;pluck('name')-&gt;implode(', '),
+                $event-&gt;musicians-&gt;pluck('name')-&gt;implode(', '),
+            ]);
+        });
 
-# compile assets with Laravel Mix
-# options: dev, prod
-npm run dev
+        $headers = [
+            'Content-Type' =&gt; 'text/csv; charset=UTF-8',
+            'Content-Disposition' =&gt; "attachment; filename=\"{$this-&gt;downloadFilename}\"",
+        ];
+
+        return response((string)$csv, 200, $headers);
+    }
+}
 </code></pre>
         </div>
     </div>

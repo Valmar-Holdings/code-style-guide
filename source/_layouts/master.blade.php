@@ -37,6 +37,7 @@
         @if ($page->docsearchApiKey && $page->docsearchIndexName)
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
         @endif
+
     </head>
 
     <body class="flex flex-col justify-between min-h-screen bg-gray-100 text-gray-800 leading-normal font-sans">
@@ -51,17 +52,22 @@
                 </div>
 
                 <div class="flex flex-1 justify-end items-center text-right md:pl-10">
+
                     @if ($page->docsearchApiKey && $page->docsearchIndexName)
                         @include('_nav.search-input')
                     @endif
+
                 </div>
             </div>
 
             @yield('nav-toggle')
+
         </header>
 
         <main role="main" class="w-full flex-auto">
+
             @yield('body')
+
         </main>
 
         <script src="{{ mix('js/main.js', 'assets/build') }}"></script>

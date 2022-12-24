@@ -1,25 +1,25 @@
 <button
     title="Start searching"
     type="button"
-    class="flex md:hidden bg-gray-100 hover:bg-blue-100 justify-center items-center border border-gray-500 rounded-full focus:outline-none h-10 px-3"
+    class="flex items-center justify-center h-10 px-3 bg-gray-100 border border-gray-500 rounded-full md:hidden hover:bg-blue-100 focus:outline-none"
     onclick="searchInput.toggle()"
 >
-    <img src="/assets/img/magnifying-glass.svg" alt="search icon" class="h-4 w-4 max-w-none">
+    <img src="{{ url("/assets/img/magnifying-glass.svg") }}" alt="search icon" class="w-4 h-4 max-w-none">
 </button>
 
-<div id="js-search-input" class="docsearch-input__wrapper hidden md:block">
+<div id="js-search-input" class="hidden docsearch-input__wrapper md:block">
     <label for="search" class="hidden">Search</label>
 
     <input
         id="docsearch-input"
-        class="docsearch-input relative block h-10 transition-fast w-full lg:w-1/2 xl:w-1/3 bg-gray-100 outline-none rounded-full text-gray-700 border border-gray-500 focus:border-blue-400 ml-auto px-4 pb-0"
+        class="relative block w-full h-10 px-4 pb-0 ml-auto text-gray-700 bg-gray-100 border border-gray-500 rounded-full outline-none docsearch-input transition-fast lg:w-1/2 xl:w-1/3 focus:border-blue-400"
         name="docsearch"
         type="text"
         placeholder="Search"
     >
 
     <button
-        class="md:hidden absolute pin-t pin-r h-full font-light text-3xl text-blue-500 hover:text-blue-600 focus:outline-none -mt-px pr-7"
+        class="absolute h-full -mt-px text-3xl font-light text-blue-500 md:hidden pin-t pin-r hover:text-blue-600 focus:outline-none pr-7"
         onclick="searchInput.toggle()"
     >&times;</button>
 </div>

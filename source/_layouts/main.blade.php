@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ $page->language ?? 'en' }}">
     <head>
+        <base href="{{ $page->baseUrl }}">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="canonical" href="{{ $page->getUrl() }}">

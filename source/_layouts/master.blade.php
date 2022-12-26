@@ -31,6 +31,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
         <link rel="stylesheet" href="{{ url(mix('css/main.css', 'assets/build')) }}">
+        <script defer src="{{ url(mix('js/main.js', 'assets/build')) }}"></script>
     </head>
 
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
@@ -45,7 +46,7 @@
                 </div>
 
                 <div class="flex items-center justify-end flex-1 text-right md:pl-10">
-test
+
                     @include('_nav.search-input')
 
                 </div>
@@ -61,7 +62,6 @@ test
 
         </main>
 
-        <script src="{{ url(mix('js/main.js', 'assets/build')) }}"></script>
 
         @stack('scripts')
 

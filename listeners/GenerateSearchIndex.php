@@ -26,7 +26,7 @@ class GenerateSearchIndex
 
                 return [
                     "categories" => $page->categories,
-                    "content" => $content,
+                    "content" => trim($content),
                     "date" => $page->getModifiedTime()
                         ? (new Carbon)->parse($page->getModifiedTime())->format("M jS, Y")
                         : null,

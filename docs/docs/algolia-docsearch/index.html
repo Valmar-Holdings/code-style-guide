@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <base href="https://valmar-holdings.github.io/code-style-guide/">
+        <base href="http://localhost:8000/">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Configure Algolia DocSearch with the Jigsaw docs starter template">
@@ -10,7 +10,7 @@
         <meta property="og:site_name" content="Docs Starter Template"/>
         <meta property="og:title" content="Algolia DocSearch | Docs Starter Template"/>
         <meta property="og:description" content="Configure Algolia DocSearch with the Jigsaw docs starter template"/>
-        <meta property="og:url" content="https://valmar-holdings.github.io/code-style-guide/docs/algolia-docsearch"/>
+        <meta property="og:url" content="http://localhost:8000/docs/algolia-docsearch"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -20,40 +20,43 @@
 
         <title>Docs Starter Template | Algolia DocSearch</title>
 
-        <link rel="home" href="https://valmar-holdings.github.io/code-style-guide/">
-        <link rel="icon" href="https://valmar-holdings.github.io/code-style-guide/favicon.ico">
+        <link rel="home" href="http://localhost:8000/">
+        <link rel="icon" href="http://localhost:8000/favicon.ico">
 
         
-                    <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="https://valmar-holdings.github.io/code-style-guide/assets/build/css/main.css?id=ed7b8c1d883d126b0d03cb1c2c1a19bd">
+        <link rel="stylesheet" href="http://localhost:8000/assets/build/css/main.css?id=5d8ca266e3452f0b0849d26558057a38">
+        <script defer src="http://localhost:8000/assets/build/js/main.js?id=6bee6b594711aaf71f3b28701cea7bf2"></script>
     </head>
 
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
         <header class="flex items-center h-24 py-4 mb-8 bg-white border-b shadow" role="banner">
             <div class="container flex items-center px-4 mx-auto max-w-8xl lg:px-8">
                 <div class="flex items-center">
-                    <a href="https://valmar-holdings.github.io/code-style-guide/" title="Docs Starter Template home" class="inline-flex items-center">
-                        <img class="h-8 mr-3 md:h-10" src="https://valmar-holdings.github.io/code-style-guide/assets/img/logo.svg" alt="Docs Starter Template logo" />
+                    <a href="http://localhost:8000/" title="Docs Starter Template home" class="inline-flex items-center">
+                        <img class="h-8 mr-3 md:h-10" src="http://localhost:8000/assets/img/logo.svg" alt="Docs Starter Template logo" />
 
                         <h1 class="pr-4 my-0 text-lg font-semibold text-blue-900 md:text-2xl hover:text-blue-600">Docs Starter Template</h1>
                     </a>
                 </div>
 
                 <div class="flex items-center justify-end flex-1 text-right md:pl-10">
-test
-                    <div x-data="window.search" class="mb-4 space-y-2 md:mb-8 lg:mb-10 xl:mb-12">
+
+                    <div>
+
+
+<div x-data="search()" class="mb-4 space-y-2 md:mb-8 lg:mb-10 xl:mb-12">
   <input
     type="search"
     name="search"
     placeholder="Search &mldr;"
     autocomplete="off"
-    @input.debounce.250ms="search"
-    x-model="query"
+    @input.debounce.250ms="search()"
     class="w-full px-4 py-2 bg-white border-b-2 shadow dark:bg-night-10 border-night-10 dark:border-snow-10 rounded-1 focus:outline-none focus:border-brand"
   />
-  <ol class="space-y-2 list-none" :class="{'hidden': results.length == 0}">
+<ol class="space-y-2 list-none"
+>
     <template x-for="result in results">
       <li
         class="p-4 overflow-hidden bg-white shadow rounded-1 dark:bg-night-20"
@@ -74,6 +77,53 @@ test
       </li>
     </template>
   </ol>
+</div>
+  <script>
+    function search()
+    {
+        return {
+    items: [],
+    fuse: null,
+    query: "",
+    results: [],
+
+    init: function () {
+        let url = new URL(window.location);
+        url.pathname = "index.json";
+        url.searchParams.set("t", Date.now());
+
+        fetch(url.toString())
+            .then((response) => response.json())
+            .then((items) => {
+                this.items = items;
+
+                this.fuse = new Fuse(items, {
+                    findAllMatches: true,
+                    includeScore: true,
+                    keys: ["content"],
+                    minMatchCharLength: 3,
+                    threshold: 0.9,
+                });
+        console.log(this.fuse.search("test"));
+            })
+            .catch(console.error);
+    },
+
+    search: function () {
+        if (this.fuse === null) {
+            this.results = [];
+
+            return false;
+        }
+
+        this.results = this.fuse.search(this.query);
+            
+
+            console.log(this.results);
+    },
+};
+    }
+  </script>
 </div>
 
                 </div>
@@ -106,7 +156,7 @@ test
             <ul class="my-0">
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/overview"
+        <a href="/docs/overview"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Overview
@@ -115,7 +165,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel"
+        <a href="/docs/laravel"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Laravel
@@ -125,7 +175,7 @@ test
         <ul class="my-0">
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/eloquent"
+        <a href="/docs/laravel/eloquent"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Eloquent
@@ -134,7 +184,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/livewire"
+        <a href="/docs/laravel/livewire"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Livewire
@@ -143,7 +193,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/blade"
+        <a href="/docs/laravel/blade"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Blade
@@ -152,7 +202,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/seeders"
+        <a href="/docs/laravel/seeders"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Seeders
@@ -161,7 +211,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/migrations"
+        <a href="/docs/laravel/migrations"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Migrations
@@ -170,7 +220,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/controllers"
+        <a href="/docs/laravel/controllers"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Controllers
@@ -179,7 +229,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/classes"
+        <a href="/docs/laravel/classes"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Classes
@@ -188,7 +238,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/npm"
+        <a href="/docs/laravel/npm"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             NPM
@@ -197,7 +247,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/models"
+        <a href="/docs/laravel/models"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Models
@@ -206,7 +256,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/routes"
+        <a href="/docs/laravel/routes"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Routes
@@ -215,7 +265,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/tests"
+        <a href="/docs/laravel/tests"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Tests
@@ -224,7 +274,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/config-env"
+        <a href="/docs/laravel/config-env"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Config &amp; Environment
@@ -233,7 +283,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/patterns"
+        <a href="/docs/laravel/patterns"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Patterns
@@ -242,7 +292,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/code-cleanliness"
+        <a href="/docs/laravel/code-cleanliness"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Code Cleanliness
@@ -251,7 +301,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/conventions"
+        <a href="/docs/laravel/conventions"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Conventions
@@ -260,7 +310,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/type-hinting"
+        <a href="/docs/laravel/type-hinting"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Type Hinting &amp; Return Types
@@ -269,7 +319,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/exceptions"
+        <a href="/docs/laravel/exceptions"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Exceptions
@@ -278,7 +328,7 @@ test
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/null"
+        <a href="/docs/laravel/null"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Null &amp; Null Objects
@@ -359,7 +409,6 @@ return [
 
         </main>
 
-        <script src="https://valmar-holdings.github.io/code-style-guide/assets/build/js/main.js?id=596fe2ae12c2b3e5b9727807607d37b6"></script>
 
         <script>
     const navMenu = {

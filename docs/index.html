@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <base href="https://valmar-holdings.github.io/code-style-guide/">
+        <base href="http://localhost:8000/">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="description" content="Beautiful docs powered by Jigsaw">
@@ -10,7 +10,7 @@
         <meta property="og:site_name" content="Docs Starter Template"/>
         <meta property="og:title" content="Docs Starter Template"/>
         <meta property="og:description" content="Beautiful docs powered by Jigsaw"/>
-        <meta property="og:url" content="https://valmar-holdings.github.io/code-style-guide/"/>
+        <meta property="og:url" content="http://localhost:8000/"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -20,40 +20,43 @@
 
         <title>Docs Starter Template</title>
 
-        <link rel="home" href="https://valmar-holdings.github.io/code-style-guide/">
-        <link rel="icon" href="https://valmar-holdings.github.io/code-style-guide/favicon.ico">
+        <link rel="home" href="http://localhost:8000/">
+        <link rel="icon" href="http://localhost:8000/favicon.ico">
 
         
-                    <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="https://valmar-holdings.github.io/code-style-guide/assets/build/css/main.css?id=ed7b8c1d883d126b0d03cb1c2c1a19bd">
+        <link rel="stylesheet" href="http://localhost:8000/assets/build/css/main.css?id=5d8ca266e3452f0b0849d26558057a38">
+        <script defer src="http://localhost:8000/assets/build/js/main.js?id=6bee6b594711aaf71f3b28701cea7bf2"></script>
     </head>
 
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
         <header class="flex items-center h-24 py-4 mb-8 bg-white border-b shadow" role="banner">
             <div class="container flex items-center px-4 mx-auto max-w-8xl lg:px-8">
                 <div class="flex items-center">
-                    <a href="https://valmar-holdings.github.io/code-style-guide/" title="Docs Starter Template home" class="inline-flex items-center">
-                        <img class="h-8 mr-3 md:h-10" src="https://valmar-holdings.github.io/code-style-guide/assets/img/logo.svg" alt="Docs Starter Template logo" />
+                    <a href="http://localhost:8000/" title="Docs Starter Template home" class="inline-flex items-center">
+                        <img class="h-8 mr-3 md:h-10" src="http://localhost:8000/assets/img/logo.svg" alt="Docs Starter Template logo" />
 
                         <h1 class="pr-4 my-0 text-lg font-semibold text-blue-900 md:text-2xl hover:text-blue-600">Docs Starter Template</h1>
                     </a>
                 </div>
 
                 <div class="flex items-center justify-end flex-1 text-right md:pl-10">
-test
-                    <div x-data="window.search" class="mb-4 space-y-2 md:mb-8 lg:mb-10 xl:mb-12">
+
+                    <div>
+
+
+<div x-data="search()" class="mb-4 space-y-2 md:mb-8 lg:mb-10 xl:mb-12">
   <input
     type="search"
     name="search"
     placeholder="Search &mldr;"
     autocomplete="off"
-    @input.debounce.250ms="search"
-    x-model="query"
+    @input.debounce.250ms="search()"
     class="w-full px-4 py-2 bg-white border-b-2 shadow dark:bg-night-10 border-night-10 dark:border-snow-10 rounded-1 focus:outline-none focus:border-brand"
   />
-  <ol class="space-y-2 list-none" :class="{'hidden': results.length == 0}">
+<ol class="space-y-2 list-none"
+>
     <template x-for="result in results">
       <li
         class="p-4 overflow-hidden bg-white shadow rounded-1 dark:bg-night-20"
@@ -75,6 +78,53 @@ test
     </template>
   </ol>
 </div>
+  <script>
+    function search()
+    {
+        return {
+    items: [],
+    fuse: null,
+    query: "",
+    results: [],
+
+    init: function () {
+        let url = new URL(window.location);
+        url.pathname = "index.json";
+        url.searchParams.set("t", Date.now());
+
+        fetch(url.toString())
+            .then((response) => response.json())
+            .then((items) => {
+                this.items = items;
+
+                this.fuse = new Fuse(items, {
+                    findAllMatches: true,
+                    includeScore: true,
+                    keys: ["content"],
+                    minMatchCharLength: 3,
+                    threshold: 0.9,
+                });
+        console.log(this.fuse.search("test"));
+            })
+            .catch(console.error);
+    },
+
+    search: function () {
+        if (this.fuse === null) {
+            this.results = [];
+
+            return false;
+        }
+
+        this.results = this.fuse.search(this.query);
+            
+
+            console.log(this.results);
+    },
+};
+    }
+  </script>
+</div>
 
                 </div>
             </div>
@@ -94,20 +144,20 @@ test
             <p class="text-lg">Give your documentation a boost with Jigsaw. <br class="hidden sm:block">Generate elegant, static docs quickly and easily.</p>
 
             <div class="flex my-10">
-                <a href="https://valmar-holdings.github.io/code-style-guide/docs/getting-started" title="Docs Starter Template getting started" class="px-6 py-2 mr-4 font-normal text-white bg-blue-500 rounded hover:bg-blue-600 hover:text-white">Get Started</a>
+                <a href="http://localhost:8000/docs/getting-started" title="Docs Starter Template getting started" class="px-6 py-2 mr-4 font-normal text-white bg-blue-500 rounded hover:bg-blue-600 hover:text-white">Get Started</a>
 
                 <a href="https://jigsaw.tighten.co" title="Jigsaw by Tighten" class="px-6 py-2 font-normal text-blue-900 bg-gray-400 rounded hover:bg-gray-600 hover:text-white">About Jigsaw</a>
             </div>
         </div>
 
-        <img src="https://valmar-holdings.github.io/code-style-guide/assets/img/logo-large.svg" alt="Docs Starter Template large logo" class="mx-auto mb-6 lg:mb-0 ">
+        <img src="http://localhost:8000/assets/img/logo-large.svg" alt="Docs Starter Template large logo" class="mx-auto mb-6 lg:mb-0 ">
     </div>
 
     <hr class="block my-8 border lg:hidden">
 
     <div class="-mx-2 -mx-4 md:flex">
         <div class="px-2 mx-3 mb-8 md:w-1/3">
-            <img src="https://valmar-holdings.github.io/code-style-guide/assets/img/icon-window.svg" class="w-12 h-12" alt="window icon">
+            <img src="http://localhost:8000/assets/img/icon-window.svg" class="w-12 h-12" alt="window icon">
 
             <h3 id="intro-laravel" class="mb-0 text-2xl text-blue-900">Templating with <br>Laravel's Blade engine</h3>
 
@@ -115,7 +165,7 @@ test
         </div>
 
         <div class="px-2 mx-3 mb-8 md:w-1/3">
-            <img src="https://valmar-holdings.github.io/code-style-guide/assets/img/icon-terminal.svg" class="w-12 h-12" alt="terminal icon">
+            <img src="http://localhost:8000/assets/img/icon-terminal.svg" class="w-12 h-12" alt="terminal icon">
 
             <h3 id="intro-markdown" class="mb-0 text-2xl text-blue-900">Use Markdown for <br>content-driven pages</h3>
 
@@ -123,7 +173,7 @@ test
         </div>
 
         <div class="px-2 mx-3 md:w-1/3">
-            <img src="https://valmar-holdings.github.io/code-style-guide/assets/img/icon-stack.svg" class="w-12 h-12" alt="stack icon">
+            <img src="http://localhost:8000/assets/img/icon-stack.svg" class="w-12 h-12" alt="stack icon">
 
             <h3 id="intro-mix" class="mb-0 text-2xl text-blue-900">Compile your assets <br>using Laravel Mix </h3>
 
@@ -134,7 +184,6 @@ test
 
         </main>
 
-        <script src="https://valmar-holdings.github.io/code-style-guide/assets/build/js/main.js?id=596fe2ae12c2b3e5b9727807607d37b6"></script>
 
         
         <footer class="py-4 mt-12 text-sm text-center bg-white" role="contentinfo">

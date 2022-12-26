@@ -1,43 +1,14 @@
+import Alpine from "alpinejs";
 import Fuse from 'fuse.js/dist/fuse.basic.esm';
 import hljs from 'highlight.js/lib/core';
+import lodash from "lodash";
 
-window.search = {
-    items: null,
-    fuse: null,
-    query: "",
-    results: [],
-    init() {
-        let url = new URL(window.location);
-        url.pathname = "index.json";
-        url.searchParams.set("t", Date.now());
+window._ = lodash;
 
-        fetch(url.toString())
-            .then((response) => response.json())
-            .then((items) => {
-                this.items = items;
+window.Alpine = Alpine;
+Alpine.start();
 
-                this.fuse = new Fuse(this.items, {
-                    includeScore: true,
-                    minMatchCharLength: 3,
-                    keys: ["content", "title"],
-                });
-            })
-            .catch(console.error);
-    },
-    search() {
-        if (this.fuse === null) {
-            this.results = [];
-
-            return false;
-        }
-
-        this.results = _(this.fuse.search(this.query))
-            .orderBy("score", "desc")
-            .take(3)
-            .map((r) => r.item)
-            .values();
-    },
-};
+window.Fuse = Fuse;
 
 hljs.registerLanguage('bash', require('highlight.js/lib/languages/bash'));
 hljs.registerLanguage('css', require('highlight.js/lib/languages/css'));

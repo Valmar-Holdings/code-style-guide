@@ -3,7 +3,7 @@
 use Illuminate\Support\Str;
 
 return [
-    'baseUrl' => 'http://localhost/',
+    'baseUrl' => 'http://localhost:8000/',
     'production' => false,
     'siteName' => 'Docs Starter Template',
     'siteDescription' => 'Beautiful docs powered by Jigsaw',

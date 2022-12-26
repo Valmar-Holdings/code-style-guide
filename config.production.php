@@ -9,10 +9,6 @@ return [
     ],
     'production' => true,
 
-    // DocSearch credentials
-    'docsearchApiKey' => env('DOCSEARCH_KEY'),
-    'docsearchIndexName' => env('DOCSEARCH_INDEX'),
-
     'url' => function ($page, $path) {
         return Str::startsWith($path, 'http')
             ? $path

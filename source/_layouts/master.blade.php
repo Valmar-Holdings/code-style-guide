@@ -16,10 +16,7 @@
 
         <meta name="twitter:image:alt" content="{{ $page->siteName }}">
         <meta name="twitter:card" content="summary_large_image">
-
-        @if ($page->docsearchApiKey && $page->docsearchIndexName)
-            <meta name="generator" content="tighten_jigsaw_doc">
-        @endif
+        <meta name="generator" content="tighten_jigsaw_doc">
 
         <title>{{ $page->siteName }}{{ $page->title ? ' | ' . $page->title : '' }}</title>
 
@@ -34,11 +31,6 @@
 
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
         <link rel="stylesheet" href="{{ url(mix('css/main.css', 'assets/build')) }}">
-
-        @if ($page->docsearchApiKey && $page->docsearchIndexName)
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
-        @endif
-
     </head>
 
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
@@ -53,10 +45,8 @@
                 </div>
 
                 <div class="flex items-center justify-end flex-1 text-right md:pl-10">
-
-                    @if ($page->docsearchApiKey && $page->docsearchIndexName)
-                        @include('_nav.search-input')
-                    @endif
+test
+                    @include('_nav.search-input')
 
                 </div>
             </div>

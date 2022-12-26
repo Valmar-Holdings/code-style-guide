@@ -16,8 +16,8 @@
 
         <meta name="twitter:image:alt" content="Docs Starter Template">
         <meta name="twitter:card" content="summary_large_image">
+        <meta name="generator" content="tighten_jigsaw_doc">
 
-        
         <title>Docs Starter Template | Patterns</title>
 
         <link rel="home" href="https://valmar-holdings.github.io/code-style-guide/">
@@ -27,9 +27,7 @@
                     <!-- Insert analytics code here -->
         
         <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="https://valmar-holdings.github.io/code-style-guide/assets/build/css/main.css?id=b83eab048ac610bcbb999327fa188e13">
-
-        
+        <link rel="stylesheet" href="https://valmar-holdings.github.io/code-style-guide/assets/build/css/main.css?id=ed7b8c1d883d126b0d03cb1c2c1a19bd">
     </head>
 
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
@@ -44,8 +42,40 @@
                 </div>
 
                 <div class="flex items-center justify-end flex-1 text-right md:pl-10">
+test
+                    <div x-data="window.search" class="mb-4 space-y-2 md:mb-8 lg:mb-10 xl:mb-12">
+  <input
+    type="search"
+    name="search"
+    placeholder="Search &mldr;"
+    autocomplete="off"
+    @input.debounce.250ms="search"
+    x-model="query"
+    class="w-full px-4 py-2 bg-white border-b-2 shadow dark:bg-night-10 border-night-10 dark:border-snow-10 rounded-1 focus:outline-none focus:border-brand"
+  />
+  <ol class="space-y-2 list-none" :class="{'hidden': results.length == 0}">
+    <template x-for="result in results">
+      <li
+        class="p-4 overflow-hidden bg-white shadow rounded-1 dark:bg-night-20"
+      >
+        <a :href="result.url" class="block group">
+          <div class="flex justify-between space-x-2 sm:justify-start">
+            <strong
+              x-text="result.title"
+              class="group-hover:text-brand"
+            ></strong>
+            <span class="text-snow-20 dark:text-snow-10">
+              
+              <time x-text="result.date"></time>
+            </span>
+          </div>
+          <p class="truncate" x-text="result.description"></p>
+        </a>
+      </li>
+    </template>
+  </ol>
+</div>
 
-                    
                 </div>
             </div>
 
@@ -70,9 +100,9 @@
 
         <main role="main" class="flex-auto w-full">
 
-            <section class="container max-w-8xl mx-auto px-6 md:px-8 py-4">
+            <section class="container px-6 py-4 mx-auto max-w-8xl md:px-8">
     <div class="flex flex-col lg:flex-row">
-        <nav id="js-nav-menu" class="nav-menu hidden lg:block">
+        <nav id="js-nav-menu" class="hidden nav-menu lg:block">
             <ul class="my-0">
             <li class="pl-4">
             
@@ -260,7 +290,7 @@
     </ul>
         </nav>
 
-        <div class="DocSearch-content w-full lg:w-3/5 break-words pb-16 lg:pl-4" v-pre>
+        <div class="w-full pb-16 break-words DocSearch-content lg:w-3/5 lg:pl-4" v-pre>
             <h2>NULL-Objects</h2>
 
 <p>Do not use null-objects as a substitute for using null for negative results (btw, don't use null anywhere in code, as it is semantically void). Instead, add a __toString() method that returns an empty string for empty models, and non-empty value for valid objects. For example:</p>
@@ -308,7 +338,7 @@
 
         </main>
 
-        <script src="https://valmar-holdings.github.io/code-style-guide/assets/build/js/main.js?id=73af017f2129fa41a4b5f03922c4c99d"></script>
+        <script src="https://valmar-holdings.github.io/code-style-guide/assets/build/js/main.js?id=596fe2ae12c2b3e5b9727807607d37b6"></script>
 
         <script>
     const navMenu = {

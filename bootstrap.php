@@ -1,5 +1,6 @@
 <?php
 
+use App\Listeners\GenerateSearchIndex;
 use App\Listeners\GenerateSitemap;
 use TightenCo\Jigsaw\Jigsaw;
 
@@ -18,4 +19,4 @@ use TightenCo\Jigsaw\Jigsaw;
  */
 
 $events->afterBuild(GenerateSitemap::class);
-
+$events->afterBuild(GenerateSearchIndex::class);

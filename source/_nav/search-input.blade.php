@@ -52,7 +52,8 @@
     name="search"
     placeholder="Search &mldr;"
     autocomplete="off"
-    @input.debounce.250ms="search()"
+    @input.debounce.250ms="search"
+    x-model="query"
     class="w-full px-4 py-2 bg-white border-b-2 shadow dark:bg-night-10 border-night-10 dark:border-snow-10 rounded-1 focus:outline-none focus:border-brand"
   />
 <ol class="space-y-2 list-none"
@@ -97,14 +98,12 @@
             .then((items) => {
                 this.items = items;
 
-                this.fuse = new Fuse(items, {
+                this.fuse = new Fuse(this.items, {
                     findAllMatches: true,
                     includeScore: true,
                     keys: ["content"],
                     minMatchCharLength: 3,
-                    threshold: 0.9,
                 });
-        console.log(this.fuse.search("test"));
             })
             .catch(console.error);
     },
@@ -116,13 +115,10 @@
             return false;
         }
 
-        this.results = this.fuse.search(this.query);
-            {{-- .orderBy("score", "desc")
-            .take(3)
-            .map((r) => r.item)
-            .values(); --}}
-
-            console.log(this.results);
+        this.results = this.fuse.search(this.query)
+            .map(function (item) {
+                return item.item;
+            });
     },
 };
     }

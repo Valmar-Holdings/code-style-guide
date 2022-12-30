@@ -21,8 +21,10 @@ class GenerateSearchIndex
             })
             ->map(function (PageVariable $page, string $path) use ($jigsaw): array {
                 $content = file_get_contents(__DIR__ . "/../{$page->build->destination}{$path}/index.html");
-                $content = Str::replace("\n", "", strip_tags($content));
-                $content = preg_replace('/[ ]+/', " ", $content);
+                $content = preg_replace('/<script(.*?)>(.*?)<\/script>/is', "", $content);
+                $content = preg_replace('/<style(.*?)>(.*?)<\/style>/is', "", $content);
+                $content = Str::replace("\n", " ", strip_tags($content));
+                $content = trim(preg_replace('/[ ]+/', " ", $content));
 
                 return [
                     "categories" => $page->categories,
@@ -30,7 +32,7 @@ class GenerateSearchIndex
                     "date" => $page->getModifiedTime()
                         ? (new Carbon)->parse($page->getModifiedTime())->format("M jS, Y")
                         : null,
-                    "link" => rightTrimPath($jigsaw->getConfig('baseUrl')) . $page->getPath(),
+                    "url" => rightTrimPath($jigsaw->getConfig('baseUrl')) . $page->getPath(),
                     "title" => $page->getTitle,
                 ];
             })

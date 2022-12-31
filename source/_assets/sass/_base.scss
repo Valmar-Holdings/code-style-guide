@@ -78,7 +78,11 @@ li {
 
 ol,
 ul {
-    @apply my-4;
+    @apply my-4 list-disc;
+}
+
+nav ul {
+    @apply my-4 list-none;
 }
 
 ol {

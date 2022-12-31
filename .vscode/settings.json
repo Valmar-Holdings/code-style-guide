@@ -46,6 +46,7 @@
         "mohamedbenhida",
         "mrmlnc",
         "naoray",
+        "nesbot",
         "oderwat",
         "pcbowers",
         "phpcodesniffer",
@@ -72,5 +73,11 @@
     ],
     "phpmd.unsafeCommand": "./vendor/bin/phpmd",
     "phpmd.verbose": true,
-    "phpmd.rules": "./phpmd.xml"
+    "phpmd.rules": "./phpmd.xml",
+    "tailwindCSS.includeLanguages": {
+        "Blade": "html",
+        "PHP": "html"
+    },
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true
 }

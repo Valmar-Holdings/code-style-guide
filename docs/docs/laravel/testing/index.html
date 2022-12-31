@@ -2,133 +2,209 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <base href="https://valmar-holdings.github.io/code-style-guide/">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="description" content="Beautiful docs powered by Jigsaw">
+        <base href="http://localhost:8000/">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        >
+        <meta
+            http-equiv="x-ua-compatible"
+            content="ie=edge"
+        >
+        <meta
+            name="description"
+            content="Beautiful docs powered by Jigsaw"
+        >
 
-        <meta property="og:site_name" content="Docs Starter Template"/>
-        <meta property="og:title" content="Testing | Docs Starter Template"/>
-        <meta property="og:description" content="Beautiful docs powered by Jigsaw"/>
-        <meta property="og:url" content="https://valmar-holdings.github.io/code-style-guide/docs/laravel/testing"/>
-        <meta property="og:image" content="/assets/img/logo.png"/>
-        <meta property="og:type" content="website"/>
+        <meta
+            property="og:site_name"
+            content="Code Style Guide"
+        />
+        <meta
+            property="og:title"
+            content="Testing | Code Style Guide"
+        />
+        <meta
+            property="og:description"
+            content="Beautiful docs powered by Jigsaw"
+        />
+        <meta
+            property="og:url"
+            content="http://localhost:8000/docs/laravel/testing"
+        />
+        <meta
+            property="og:image"
+            content="/assets/img/logo.png"
+        />
+        <meta
+            property="og:type"
+            content="website"
+        />
 
-        <meta name="twitter:image:alt" content="Docs Starter Template">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="generator" content="tighten_jigsaw_doc">
+        <meta
+            name="twitter:image:alt"
+            content="Code Style Guide"
+        >
+        <meta
+            name="twitter:card"
+            content="summary_large_image"
+        >
+        <meta
+            name="generator"
+            content="tighten_jigsaw_doc"
+        >
 
-        <title>Docs Starter Template | Testing</title>
+        <title>Code Style Guide | Testing</title>
 
-        <link rel="home" href="https://valmar-holdings.github.io/code-style-guide/">
-        <link rel="icon" href="https://valmar-holdings.github.io/code-style-guide/favicon.ico">
+        <link
+            rel="home"
+            href="http://localhost:8000/"
+        >
+        <link
+            rel="icon"
+            href="http://localhost:8000/favicon.ico"
+        >
 
         
-                    <!-- Insert analytics code here -->
         
-        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i" rel="stylesheet">
-        <link rel="stylesheet" href="https://valmar-holdings.github.io/code-style-guide/assets/build/css/main.css?id=5d8ca266e3452f0b0849d26558057a38">
-        <script defer src="https://valmar-holdings.github.io/code-style-guide/assets/build/js/main.js?id=6bee6b594711aaf71f3b28701cea7bf2"></script>
+        <link
+            href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i,800,800i"
+            rel="stylesheet"
+        >
+        <link
+            rel="stylesheet"
+            href="http://localhost:8000/assets/build/css/main.css"
+        >
+        <script
+            defer
+            src="http://localhost:8000/assets/build/js/main.js"
+        ></script>
     </head>
 
     <body class="flex flex-col justify-between min-h-screen font-sans leading-normal text-gray-800 bg-gray-100">
-        <header class="flex items-center h-24 py-4 mb-8 bg-white border-b shadow" role="banner">
-            <div class="container flex items-center px-4 mx-auto max-w-8xl lg:px-8">
+        <header
+            class="flex items-center h-24 py-4 mb-8 bg-white border-b shadow"
+            role="banner"
+        >
+            <div class="container flex items-center px-4 mx-auto max-w max-w-8xl lg:px-8">
                 <div class="flex items-center">
-                    <a href="https://valmar-holdings.github.io/code-style-guide/" title="Docs Starter Template home" class="inline-flex items-center">
-                        <img class="h-8 mr-3 md:h-10" src="https://valmar-holdings.github.io/code-style-guide/assets/img/logo.svg" alt="Docs Starter Template logo" />
+                    <a
+                        href="http://localhost:8000/"
+                        title="Code Style Guide home"
+                        class="inline-flex items-center"
+                    >
+                        <img
+                            class="h-8 mr-3 md:h-10"
+                            src="http://localhost:8000/assets/img/logo.svg"
+                            alt="Code Style Guide logo"
+                        />
 
-                        <h1 class="pr-4 my-0 text-lg font-semibold text-blue-900 md:text-2xl hover:text-blue-600">Docs Starter Template</h1>
+                        <h1
+                            class="pr-4 my-0 text-lg font-semibold text-blue-900 whitespace-nowrap hover:text-blue-600 md:text-2xl"
+                        >
+                            Code Style Guide
+                        </h1>
                     </a>
                 </div>
 
                 <div class="flex items-center justify-end flex-1 text-right md:pl-10">
 
                     <div>
+    <div
+        x-data="search()"
+        class="mb-4 space-y-2 md:mb-8 lg:mb-10 xl:mb-12"
+    >
+        <input
+            type="search"
+            name="search"
+            placeholder="Search &mldr;"
+            autocomplete="off"
+            @input.debounce.250ms="search"
+            x-model="query"
+            class="w-full px-4 py-2 bg-white border-b-2 shadow dark:bg-night-10 border-night-10 dark:border-snow-10 rounded-1 focus:border-brand focus:outline-none"
+        />
+        <ol
+            class="space-y-2 list-none"
+        >
+            <template
+                x-for="result in results"
+            >
+                <li
+                    class="p-4 overflow-hidden bg-white shadow rounded-1 dark:bg-night-20"
+                >
+                    <a
+                        :href="result.url"
+                        class="block group"
+                    >
+                        <div
+                            class="flex justify-between space-x-2 sm:justify-start"
+                        >
+                            <strong
+                                x-text="result.title"
+                                class="group-hover:text-brand"
+                            ></strong>
+                            <span class="text-snow-20 dark:text-snow-10">
+                                
+                                <time x-text="result.date"></time>
+                            </span>
+                        </div>
+                        <p
+                            class="truncate"
+                            x-text="result.description"
+                        ></p>
+                    </a>
+                </li>
+            </template>
+        </ol>
+    </div>
+    <script>
+        function search() {
+            return {
+                items: [],
+                fuse: null,
+                query: "",
+                results: [],
 
+                init: function() {
+                    let url = new URL(window.location);
 
-<div x-data="search()" class="mb-4 space-y-2 md:mb-8 lg:mb-10 xl:mb-12">
-  <input
-    type="search"
-    name="search"
-    placeholder="Search &mldr;"
-    autocomplete="off"
-    @input.debounce.250ms="search"
-    x-model="query"
-    class="w-full px-4 py-2 bg-white border-b-2 shadow dark:bg-night-10 border-night-10 dark:border-snow-10 rounded-1 focus:outline-none focus:border-brand"
-  />
-<ol class="space-y-2 list-none"
->
-    <template x-for="result in results">
-      <li
-        class="p-4 overflow-hidden bg-white shadow rounded-1 dark:bg-night-20"
-      >
-        <a :href="result.url" class="block group">
-          <div class="flex justify-between space-x-2 sm:justify-start">
-            <strong
-              x-text="result.title"
-              class="group-hover:text-brand"
-            ></strong>
-            <span class="text-snow-20 dark:text-snow-10">
-              
-              <time x-text="result.date"></time>
-            </span>
-          </div>
-          <p class="truncate" x-text="result.description"></p>
-        </a>
-      </li>
-    </template>
-  </ol>
-</div>
-  <script>
-    function search()
-    {
-        return {
-    items: [],
-    fuse: null,
-    query: "",
-    results: [],
+                    url.pathname = "index.json";
+                    url.searchParams.set("t", Date.now());
 
-    init: function () {
-        let url = new URL(window.location);
+                    if (window.location.port != 8000) {
+                        url.pathname = "code-style-guide/" + url.pathname;
+                    }
 
-        url.pathname = "index.json";
-        url.searchParams.set("t", Date.now());
+                    fetch(url.toString())
+                        .then((response) => response.json())
+                        .then((items) => {
+                            this.items = items;
 
-        if (window.location.port !== 8000) {
-            url.pathname = "code-style-guide/" + url.pathname;
+                            this.fuse = new Fuse(this.items, {
+                                findAllMatches: true,
+                                includeScore: true,
+                                keys: ["content"],
+                                minMatchCharLength: 3,
+                            });
+                        })
+                        .catch(console.error);
+                },
+
+                search: function() {
+                    if (this.fuse === null) {
+                        this.results = [];
+
+                        return false;
+                    }
+
+                    this.results = this.fuse.search(this.query)
+                        .map(function(item) {
+                            return item.item;
+                        });
+                },
+            };
         }
-
-        fetch(url.toString())
-            .then((response) => response.json())
-            .then((items) => {
-                this.items = items;
-
-                this.fuse = new Fuse(this.items, {
-                    findAllMatches: true,
-                    includeScore: true,
-                    keys: ["content"],
-                    minMatchCharLength: 3,
-                });
-            })
-            .catch(console.error);
-    },
-
-    search: function () {
-        if (this.fuse === null) {
-            this.results = [];
-
-            return false;
-        }
-
-        this.results = this.fuse.search(this.query)
-            .map(function (item) {
-                return item.item;
-            });
-    },
-};
-    }
-  </script>
+    </script>
 </div>
 
                 </div>
@@ -153,15 +229,26 @@
 
         </header>
 
-        <main role="main" class="flex-auto w-full">
+        <main
+            role="main"
+            class="flex-auto w-full"
+        >
 
-            <section class="container px-6 py-4 mx-auto max-w-8xl md:px-8">
-    <div class="flex flex-col lg:flex-row">
-        <nav id="js-nav-menu" class="hidden nav-menu lg:block">
-            <ul class="my-0">
+                <section
+        class="container px-6 py-4 mx-auto max-w-8xl md:px-8"
+    >
+        <div
+            class="flex flex-col lg:flex-row"
+        >
+            <nav
+                class="hidden nav-menu lg:block"
+                id="js-nav-menu"
+            >
+
+                <ul class="my-0">
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/overview"
+        <a href="/docs/overview"
             class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Overview
@@ -170,8 +257,8 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel"
-            class="lvl0   nav-menu__item hover:text-blue-500"
+        <a href="/docs/laravel"
+            class="lvl0 lvl0-active  nav-menu__item hover:text-blue-500"
         >
             Laravel
         </a>
@@ -180,25 +267,7 @@
         <ul class="my-0">
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/eloquent"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Eloquent
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/livewire"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Livewire
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/blade"
+        <a href="/docs/laravel/blade"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Blade
@@ -207,34 +276,7 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/seeders"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Seeders
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/migrations"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Migrations
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/controllers"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Controllers
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/classes"
+        <a href="/docs/laravel/classes"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Classes
@@ -243,61 +285,7 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/npm"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            NPM
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/models"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Models
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/routes"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Routes
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/tests"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Tests
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/config-env"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Config &amp; Environment
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/patterns"
-            class="lvl1   nav-menu__item hover:text-blue-500"
-        >
-            Patterns
-        </a>
-    
-    </li>
-            <li class="pl-4">
-            
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/code-cleanliness"
+        <a href="/docs/laravel/code-cleanliness"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Code Cleanliness
@@ -306,25 +294,34 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/conventions"
+        <a href="/docs/laravel/config-env"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
-            Conventions
+            Config &amp; Environment
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/type-hinting"
+        <a href="/docs/laravel/controllers"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
-            Type Hinting &amp; Return Types
+            Controllers
         </a>
     
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/exceptions"
+        <a href="/docs/laravel/eloquent"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Eloquent
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/laravel/exceptions"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Exceptions
@@ -333,60 +330,130 @@
     </li>
             <li class="pl-4">
             
-        <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/null"
+        <a href="/docs/laravel/livewire"
             class="lvl1   nav-menu__item hover:text-blue-500"
         >
-            Null &amp; Null Objects
+            Livewire
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/laravel/models"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Models
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/laravel/patterns"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Patterns
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/laravel/routes"
+            class="lvl1   nav-menu__item hover:text-blue-500"
+        >
+            Routes
+        </a>
+    
+    </li>
+            <li class="pl-4">
+            
+        <a href="/docs/laravel/testing"
+            class="lvl1  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+        >
+            Testing
         </a>
     
     </li>
     </ul>
     </li>
     </ul>
-        </nav>
 
-        <div class="w-full pb-16 break-words DocSearch-content lg:w-3/5 lg:pl-4" v-pre>
-            <ul>
-<li>Always write unit and integration tests, testing for success and failure for each scenario.</li>
-<li>Only test public methods of classes.</li>
-<li>Write tests so that they cover all protected and private methods of the class, accessed through the public methods. If there are non-public methods that are not covered, they are either inaccessible, or the tests are comprehensive enough. If they are inaccessible, those methods should be removed.</li>
-<li>Tests should document the functionality of classes and their methods.</li>
-<li>Mock any external interfaces you do not control, and test for both successes and failures.</li>
-<li>Do not mock classes that you control.</li>
+            </nav>
+
+            <div
+                class="w-full pb-16 break-words DocSearch-content lg:w-3/5 lg:pl-4"
+                v-pre
+            >
+                <h1>Testing</h1>
+
+                                    <p
+                        class="text-xs italic text-gray-400"
+                    >
+
+                        Last Updated:
+                        <time
+                            datetime="2022-12-31 00:00:00"
+                        >
+                            31 Dec 2022
+                        </time>
+                    </p>
+                
+                <ul>
+<li>✋ Always write unit and integration tests, testing for success and failure for each scenario.</li>
+<li>🤔 Only test public methods of classes.</li>
+<li>✋ Write tests so that they cover all protected and private methods of the class, accessed through the public methods. If there are non-public methods that are not covered, they are either inaccessible, or the tests are comprehensive enough. If they are inaccessible, those methods should be removed.</li>
+<li>✋ Tests should document the functionality of classes and their methods.</li>
+<li>✋ Mock any external interfaces you do not control, and test for both successes and failures.</li>
+<li>✋ Do not mock classes that you control.</li>
 </ul>
 
 <h2>Databases</h2>
 
-<p>Do not use SQLite if:
+<p>Do not use SQLite for testing if:
   - you are using JSON fields
   - require exact float value calculations based on decimal fields
-  - have table alterations in your migrations</p>
+  - have table alterations in your migrations
+  - if you have raw queries which manipulate dates</p>
 
 <h2>Unit Tests</h2>
 
 <ul>
-<li>Write unite tests before implementing classes (only implement classes, never procedural code).</li>
-<li>When starting an app, start where you would start with writing code. The first test does not have to be elegant, or even correct. The most important thing is just to get started.</li>
-<li>Always do Red/Green/Refactor TDD. This means writing tests for the code you would like to see in an optimal world. Then make the failing test pass using the minimum amount of code. Write another test to expand on the first test, which again makes the existing code fail. Refactor your code to make the second test pass. Rinse and repeat until you have the minimum necessary functionality for your MVP (minimum viable product).</li>
-<li>During the red/green/refactor process, keep in mind that you need to develop from two different perspectives:
+<li>✋ Write unite tests before implementing classes (only implement classes, never procedural code).</li>
+<li>✋ When starting an app, start where you would start with writing code. The first test does not have to be elegant, or even correct. The most important thing is just to get started.</li>
+<li>✋ Always do Red/Green/Refactor TDD. This means writing tests for the code you would like to see in an optimal world. Then make the failing test pass using the minimum amount of code. Write another test to expand on the first test, which again makes the existing code fail. Refactor your code to make the second test pass. Rinse and repeat until you have the minimum necessary functionality for your MVP (minimum viable product).</li>
+<li>✋ During the red/green/refactor process, keep in mind that you need to develop from two different perspectives:
 
 <ol>
 <li>When writing tests, keep the larger picture of the application and business domain in mind.</li>
 <li>When writing code to satisfy tests, only think about the test that needs to be satisfied. DO NOT THINK ABOUT BUSINESS LOGIC, ONLY FOCUS ON MAKING TESTS GREEN.</li>
 </ol></li>
-<li>Never add code that wont be used.</li>
-<li>Remove any code that is not used.</li>
-<li>Use cyclomatic complexity as a guide for the number of tests needed to achieve full test coverage of your code.</li>
-<li>As your tests get more specific, your code should become more generic.</li>
-<li>Goal of tests is to get as quickly as possible to &quot;Shameless Green&quot;, which means that no matter how ugly your code is, it satisfies all tests, thus is &quot;green&quot;.</li>
-<li>One of the principles of Shameless Green is that code is written for understanding, rather than extreme adherence to any and all patterns. The human is the focus.</li>
-<li>Consider Robert Martin&#39;s Transformation Priority Premise (<a href="https://8thlight.com/blog/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html">https://8thlight.com/blog/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html</a>) when writing functional code to keep code complexity at a minimum. Try to opt for the highest ranked option.</li>
-<li>Abstract logic into methods only if they are used multiple times. Otherwise this might introduce mental debt and increase code complexity.</li>
-<li>Consider waiting to dry out duplicated code until after a few tests cover it. This way the correct abstraction might reveal itself, rather than prematurely abstracting it out incorrectly.</li>
+<li>✋ Never add code that wont be used.</li>
+<li>✋ Remove any code that is not used.</li>
+<li>✋ Use cyclomatic complexity as a guide for the number of tests needed to achieve full test coverage of your code.</li>
+<li>✋ As your tests get more specific, your code should become more generic.</li>
+<li>✋ Goal of tests is to get as quickly as possible to &quot;Shameless Green&quot;, which means that no matter how ugly your code is, it satisfies all tests, thus is &quot;green&quot;.</li>
+<li>✋ One of the principles of Shameless Green is that code is written for understanding, rather than extreme adherence to any and all patterns. The human is the focus.</li>
+<li>✋ Consider Robert Martin&#39;s Transformation Priority Premise (<a href="https://8thlight.com/blog/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html">https://8thlight.com/blog/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html</a>) when writing functional code to keep code complexity at a minimum. Try to opt for the highest ranked option.</li>
+<li>✋ Abstract logic into methods only if they are used multiple times. Otherwise this might introduce mental debt and increase code complexity.</li>
+<li>✋ Consider waiting to dry out duplicated code until after a few tests cover it. This way the correct abstraction might reveal itself, rather than prematurely abstracting it out incorrectly.</li>
 </ul>
+
+                <div
+                    class="flex flex-col gap-2 pt-2 mt-8 text-sm italic border-t border-gray-300"
+                >
+                    <p
+                        class="p-0 m-0"
+                    >
+                        ✋ This is currently a manual process for which we don't have a linter (yet).
+                    </p>
+                    <p
+                        class="p-0 m-0"
+                    >
+                        🤔 This is currently under consideration, but not enforced.
+                    </p>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
         </main>
 
@@ -403,17 +470,22 @@
     }
 </script>
 
-        <footer class="py-4 mt-12 text-sm text-center bg-white" role="contentinfo">
-            <ul class="flex flex-col justify-center md:flex-row">
-                <li class="md:mr-2">
-                    &copy; <a href="https://tighten.co" title="Tighten website">Tighten</a> 2022.
-                </li>
-
-                <li>
-                    Built with <a href="http://jigsaw.tighten.co" title="Jigsaw by Tighten">Jigsaw</a>
-                    and <a href="https://tailwindcss.com" title="Tailwind CSS, a utility-first CSS framework">Tailwind CSS</a>.
-                </li>
-            </ul>
+        <footer
+            class="py-4 mt-12 text-sm text-center bg-white"
+            role="contentinfo"
+        >
+            <p
+                class="text-base text-gray-400 xl:text-center"
+            >
+                &copy; 2022
+                <a
+                    href="https://valmar.holdings"
+                    title="Valmar Holdings"
+                >
+                    Valmar Holdings
+                </a>.
+                All rights reserved.
+            </p>
         </footer>
     </body>
 </html>

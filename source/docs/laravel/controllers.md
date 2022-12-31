@@ -1,29 +1,25 @@
 ---
 title: Controllers
-description: 
+description:
 extends: _layouts.documentation
 section: content
+updatedAt: 2022-12-31
 ---
 ## Purpose
-
 Controllers serve only two purposes:
-
 1. Process a specific request, handled by a request object (see below).
-1. Return an appropriate response, handled by a response object (see below).
+2. Return an appropriate response, handled by a response object (see below).
 
 Controllers should contain no business logic. Instead, various types of business logic should be extracted out to:
-
-- form submission processing should be extracted to Form Request objects.
-- JSON responses should be extracted to Resource objects.
-- other business logic should be extracted to Response objects.
+- ✋ form submission processing should be extracted to Form Request objects. Parsing of input should be done in the `process()` method on the Form Request object.
+- ✋ JSON responses should be extracted to Resource objects.
+- ✋ other business logic should be extracted to Action (or similar) objects.
 
 ## Structure
-
-Controllers should only contain RESTful methods. If additional methods seem to be needed, a new RESTful controller with an appropriate name should be created to satisfy that need.
+- ✋ Controllers should only contain RESTful methods. If additional methods seem to be needed, a new RESTful controller with an appropriate name should be created to satisfy that need.
 
 ### Single-Method Controllers
-
-If the controller only has a single method, use `__invoke()`.
+- ✋ If the controller only has a single method, use `__invoke()`.
 
 ```php
 <?php namespace App\Http\Controllers;
@@ -40,9 +36,9 @@ class WelcomeController extends Controller
 ```
 
 ## Request Objects
-
-- All controller methods that accept data should validate the incoming data using Request objects
-- All controller methods that accept data should process the incoming data in a `process()` method that returns whatever object necessary to continue the logic in the controller method. For example:
+- ✋ All reuqest object should check if the user is authorized to perform the requested operation.
+- ✋ All controller methods that accept data should validate the incoming data using Request objects
+- ✋ All controller methods that accept data should process the incoming data in a `process()` method that returns whatever object necessary to continue the logic in the controller method. For example:
 
 ```php
     public function store(CreateReport $request) : RedirectResponse
@@ -55,7 +51,7 @@ class WelcomeController extends Controller
 
 ## Response Objects
 
-Resource objects should be utilized to build up and return all data and objects required by the view to the view.
+- ✋ Resource objects should be utilized to build up and return all data and objects required by the view to the view.
 
 ```php
 <?php namespace App\Http\Controllers\Reports;
@@ -100,7 +96,7 @@ class Csv implements Responsable
     }
 
     /**
-     * @SuppressWarnings(PHPMD.StaticAccess)     
+     * @SuppressWarnings(PHPMD.StaticAccess)
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function toResponse($request) : Response

@@ -2,7 +2,8 @@
     "require": {
         "php": "^8.1",
         "samdark/sitemap": "^2.2.1",
-        "tightenco/jigsaw": "^1.6"
+        "tightenco/jigsaw": "^1.6",
+        "nesbot/carbon": "^2.64"
     },
     "require-dev": {
         "genealabs/php-coding-standards": "dev-main@dev",

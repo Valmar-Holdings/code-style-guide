@@ -8,9 +8,9 @@
         <meta name="description" content="Beautiful docs powered by Jigsaw">
 
         <meta property="og:site_name" content="Docs Starter Template"/>
-        <meta property="og:title" content="Tests | Docs Starter Template"/>
+        <meta property="og:title" content="Testing | Docs Starter Template"/>
         <meta property="og:description" content="Beautiful docs powered by Jigsaw"/>
-        <meta property="og:url" content="https://valmar-holdings.github.io/code-style-guide/docs/laravel/tests"/>
+        <meta property="og:url" content="https://valmar-holdings.github.io/code-style-guide/docs/laravel/testing"/>
         <meta property="og:image" content="/assets/img/logo.png"/>
         <meta property="og:type" content="website"/>
 
@@ -18,7 +18,7 @@
         <meta name="twitter:card" content="summary_large_image">
         <meta name="generator" content="tighten_jigsaw_doc">
 
-        <title>Docs Starter Template | Tests</title>
+        <title>Docs Starter Template | Testing</title>
 
         <link rel="home" href="https://valmar-holdings.github.io/code-style-guide/">
         <link rel="icon" href="https://valmar-holdings.github.io/code-style-guide/favicon.ico">
@@ -166,7 +166,7 @@
             <li class="pl-4">
             
         <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel"
-            class="lvl0 lvl0-active  nav-menu__item hover:text-blue-500"
+            class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Laravel
         </a>
@@ -266,7 +266,7 @@
             <li class="pl-4">
             
         <a href="https://valmar-holdings.github.io/code-style-guide/docs/laravel/tests"
-            class="lvl1  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+            class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Tests
         </a>
@@ -349,6 +349,13 @@
 <li>Mock any external interfaces you do not control, and test for both successes and failures.</li>
 <li>Do not mock classes that you control.</li>
 </ul>
+
+<h2>Databases</h2>
+
+<p>Do not use SQLite if:
+  - you are using JSON fields
+  - require exact float value calculations based on decimal fields
+  - have table alterations in your migrations</p>
 
 <h2>Unit Tests</h2>
 

@@ -1,5 +1,5 @@
 ---
-title: Tests
+title: Testing
 description: 
 extends: _layouts.documentation
 section: content
@@ -10,6 +10,12 @@ section: content
 - Tests should document the functionality of classes and their methods.
 - Mock any external interfaces you do not control, and test for both successes and failures.
 - Do not mock classes that you control.
+
+## Databases
+Do not use SQLite if:
+  - you are using JSON fields
+  - require exact float value calculations based on decimal fields
+  - have table alterations in your migrations
 
 ## Unit Tests
 

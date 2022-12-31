@@ -90,8 +90,13 @@
 
     init: function () {
         let url = new URL(window.location);
+
         url.pathname = "index.json";
         url.searchParams.set("t", Date.now());
+
+        if (window.location.port !== 8000) {
+            url.pathname = "code-style-guide/" + url.pathname;
+        }
 
         fetch(url.toString())
             .then((response) => response.json())

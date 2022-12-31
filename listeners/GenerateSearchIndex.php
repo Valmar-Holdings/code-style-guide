@@ -20,7 +20,10 @@ class GenerateSearchIndex
                     || Str::contains($path, "favicon");
             })
             ->map(function (PageVariable $page, string $path) use ($jigsaw): array {
+                $matches = [];
                 $content = file_get_contents(__DIR__ . "/../{$page->build->destination}{$path}/index.html");
+                preg_match_all('/\<h1\>(.*?)\<\/h1\>/m', $content, $matches, PREG_SET_ORDER, 0);
+                $title = data_get($matches, "0.1");
                 $content = preg_replace('/<script(.*?)>(.*?)<\/script>/is', "", $content);
                 $content = preg_replace('/<style(.*?)>(.*?)<\/style>/is', "", $content);
                 $content = Str::replace("\n", " ", strip_tags($content));
@@ -33,7 +36,7 @@ class GenerateSearchIndex
                         ? (new Carbon)->parse($page->getModifiedTime())->format("M jS, Y")
                         : null,
                     "url" => rightTrimPath($jigsaw->getConfig('baseUrl')) . $page->getPath(),
-                    "title" => $page->getTitle,
+                    "title" => $title,
                 ];
             })
             ->values();

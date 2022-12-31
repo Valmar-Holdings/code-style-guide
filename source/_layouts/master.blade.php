@@ -113,7 +113,7 @@
 
                 <div class="flex items-center justify-end flex-1 text-right md:pl-10">
 
-                    @include('_nav.search-input')
+                    {{-- @include('_nav.search-input') --}}
 
                 </div>
             </div>

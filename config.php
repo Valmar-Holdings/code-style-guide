@@ -6,7 +6,7 @@ return [
     "baseUrl" => "http://localhost:8000/",
     "production" => false,
     "siteName" => "Code Style Guide",
-    "siteDescription" => "Beautiful docs powered by Jigsaw",
+    "siteDescription" => "as practiced in Valmar Holdings",
 
     // navigation menu
     "navigation" => require_once("navigation.php"),

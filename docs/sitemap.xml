@@ -2,82 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/overview</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/navigation</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/code-cleanliness</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/classes</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/routes</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/blade</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/testing</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/config-env</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/eloquent</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/controllers</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/models</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/patterns</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/livewire</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
  <url>
   <loc>https://valmar-holdings.github.io/code-style-guide/docs/laravel/exceptions</loc>
-  <lastmod>2022-12-31T21:44:32+00:00</lastmod>
+  <lastmod>2022-12-31T23:11:59+00:00</lastmod>
   <changefreq>daily</changefreq>
  </url>
 </urlset>

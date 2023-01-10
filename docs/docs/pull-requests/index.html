@@ -13,7 +13,7 @@
         >
         <meta
             name="description"
-            content="as practiced in Valmar Holdings"
+            content="Guide to creating, maintaining, and completing GitHub pull requests."
         >
 
         <meta
@@ -22,15 +22,15 @@
         />
         <meta
             property="og:title"
-            content="Testing | Code Style Guide"
+            content="Pull Requests | Code Style Guide"
         />
         <meta
             property="og:description"
-            content="as practiced in Valmar Holdings"
+            content="Guide to creating, maintaining, and completing GitHub pull requests."
         />
         <meta
             property="og:url"
-            content="http://localhost:8000/docs/laravel/testing"
+            content="http://localhost:8000/docs/pull-requests"
         />
         <meta
             property="og:image"
@@ -54,7 +54,7 @@
             content="tighten_jigsaw_doc"
         >
 
-        <title>Code Style Guide | Testing</title>
+        <title>Code Style Guide | Pull Requests</title>
 
         <link
             rel="home"
@@ -162,7 +162,7 @@
             <li class="pl-4">
             
         <a href="/docs/pull-requests"
-            class="lvl0   nav-menu__item hover:text-blue-500"
+            class="lvl0  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
         >
             Pull Request
         </a>
@@ -171,7 +171,7 @@
             <li class="pl-4">
             
         <a href="/docs/laravel"
-            class="lvl0 lvl0-active  nav-menu__item hover:text-blue-500"
+            class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Laravel
         </a>
@@ -280,7 +280,7 @@
             <li class="pl-4">
             
         <a href="/docs/laravel/testing"
-            class="lvl1  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+            class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Testing
         </a>
@@ -296,59 +296,40 @@
                 class="w-full pb-16 break-words DocSearch-content lg:w-3/5 lg:pl-4"
                 v-pre
             >
-                <h1>Testing</h1>
+                <h1>Pull Requests</h1>
 
-                                    <p
-                        class="text-xs italic text-gray-400"
-                    >
-
-                        Last Updated:
-                        <time
-                            datetime="2022-12-31 00:00:00"
-                        >
-                            31 Dec 2022
-                        </time>
-                    </p>
                 
-                <ul>
-<li>✋ Always write unit and integration tests, testing for success and failure for each scenario.</li>
-<li>🤔 Only test public methods of classes.</li>
-<li>✋ Write tests so that they cover all protected and private methods of the class, accessed through the public methods. If there are non-public methods that are not covered, they are either inaccessible, or the tests are comprehensive enough. If they are inaccessible, those methods should be removed.</li>
-<li>✋ Tests should document the functionality of classes and their methods.</li>
-<li>✋ Mock any external interfaces you do not control, and test for both successes and failures.</li>
-<li>✋ Do not mock classes that you control.</li>
-</ul>
+                <ol>
+<li>Log into ZenHub and determine the issue you will be working on from the <strong>Sprint Backlog</strong> pipeline.</li>
+<li>Move this issue over to the <strong>In Progress</strong> pipeline.</li>
+<li>Open your project in VSCode.</li>
+<li>Make sure you are on your local develop branch, and that you are up-to-date with <code>origin/develop</code>.</li>
+<li>Create a new branch from develop and name it according to what it addresses, in <code>kebab-case</code>.</li>
+<li><p>Update <code>CHANGELOG.md</code> with a description of what you will be working on, under one of the appropriate sections under the <code>Unreleased</code> section, worded in such a way that the subsection will form a complete sentence when read with each list item:</p>
 
-<h2>Databases</h2>
+<pre><code class="language-md">### 🎉 Added
+- awesome things to the dashboard.
+</code></pre></li>
+<li><p>Save the changelog entries.</p></li>
+<li>Open the Source Control tab, and commit your changelog changes.</li>
+<li>Click the <strong>Publish Branch</strong> button.</li>
+<li>VSCode will now ask you if you want to create a pull request. Click the <strong>Create Pull Request…</strong> button.</li>
+<li>Change the title of the PR to read similar to what your changelog entry is, except that instead of past-tense, use present tense: &quot;Add awesome things to the dashboard.&quot; (The PR title should be phrased as a request to be completed.)</li>
+<li>Select the correct branch you based your PR on.</li>
+<li><p>Under related issues, add the issue number you are working on, for example:</p>
 
-<p>Do not use SQLite for testing if:
-  - you are using JSON fields
-  - require exact float value calculations based on decimal fields
-  - have table alterations in your migrations
-  - if you have raw queries which manipulate dates</p>
-
-<h2>Unit Tests</h2>
-
-<ul>
-<li>✋ Write unite tests before implementing classes (only implement classes, never procedural code).</li>
-<li>✋ When starting an app, start where you would start with writing code. The first test does not have to be elegant, or even correct. The most important thing is just to get started.</li>
-<li>✋ Always do Red/Green/Refactor TDD. This means writing tests for the code you would like to see in an optimal world. Then make the failing test pass using the minimum amount of code. Write another test to expand on the first test, which again makes the existing code fail. Refactor your code to make the second test pass. Rinse and repeat until you have the minimum necessary functionality for your MVP (minimum viable product).</li>
-<li>✋ During the red/green/refactor process, keep in mind that you need to develop from two different perspectives:
-
-<ol>
-<li>When writing tests, keep the larger picture of the application and business domain in mind.</li>
-<li>When writing code to satisfy tests, only think about the test that needs to be satisfied. DO NOT THINK ABOUT BUSINESS LOGIC, ONLY FOCUS ON MAKING TESTS GREEN.</li>
-</ol></li>
-<li>✋ Never add code that wont be used.</li>
-<li>✋ Remove any code that is not used.</li>
-<li>✋ Use cyclomatic complexity as a guide for the number of tests needed to achieve full test coverage of your code.</li>
-<li>✋ As your tests get more specific, your code should become more generic.</li>
-<li>✋ Goal of tests is to get as quickly as possible to &quot;Shameless Green&quot;, which means that no matter how ugly your code is, it satisfies all tests, thus is &quot;green&quot;.</li>
-<li>✋ One of the principles of Shameless Green is that code is written for understanding, rather than extreme adherence to any and all patterns. The human is the focus.</li>
-<li>✋ Consider Robert Martin&#39;s Transformation Priority Premise (<a href="https://8thlight.com/blog/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html">https://8thlight.com/blog/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html</a>) when writing functional code to keep code complexity at a minimum. Try to opt for the highest ranked option.</li>
-<li>✋ Abstract logic into methods only if they are used multiple times. Otherwise this might introduce mental debt and increase code complexity.</li>
-<li>✋ Consider waiting to dry out duplicated code until after a few tests cover it. This way the correct abstraction might reveal itself, rather than prematurely abstracting it out incorrectly.</li>
-</ul>
+<pre><code class="language-md">## Related Issues
+#1234
+</code></pre></li>
+<li><p>Make sure the &quot;Create as draft&quot; checkbox is marked.</p></li>
+<li>Click the <strong>Create</strong> button.</li>
+<li>Perform the work necessary to satisfy the issue.</li>
+<li>Commit any changes at a minimum each day before stopping work.</li>
+<li>Update the changelog to account for any differences in implementation from your original changelog entry.</li>
+<li>When done implementing your changes, commit them.</li>
+<li>Open the GitHub tab and select the PR you are working on, and click on the Description entry.</li>
+<li>Scroll all the way to the bottom and click the <strong>Ready for review</strong> button.</li>
+</ol>
 
                 <div
                     class="flex flex-col gap-2 pt-2 mt-8 text-sm italic border-t border-gray-300"

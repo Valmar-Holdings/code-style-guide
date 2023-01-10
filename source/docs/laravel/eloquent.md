@@ -22,6 +22,12 @@ updatedAt: 2022-12-31
 - to be added
 
 ## Migrations
+
+- ✋ Migrations should use `came_case` fields.
+- ✋ Migrations should have fields organized into three sections (separated by a blank line):
+  - primary and foreign keys, each in alphabetical order of the field name.
+  - date, datetime, timestamp, and softDelete fields, in alphabetical order of the field name.
+  - content fields, in alphabetical order of the field name.
 - ✋ Each table should have its own migration file.
 - 🤔 Migrations should only change the database schema, and not manipulate data, unless directly necessary for the migration to run.
 - ✋ Migrations should contain the definitive table definition in the up method, and only drop the table in the down method.

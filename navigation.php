@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 return [
     "Overview" => "docs/overview",
+    "Pull Request" => "docs/pull-requests",
     "Laravel" => [
         "url" => "docs/laravel",
         "children" => [

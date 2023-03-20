@@ -104,7 +104,7 @@
                         />
 
                         <h1
-                            class="pr-4 my-0 text-lg font-semibold text-blue-900 whitespace-nowrap hover:text-blue-600 md:text-2xl"
+                            class="px-8 my-0 text-lg font-semibold text-cyan-900 whitespace-nowrap hover:text-cyan-400 md:text-2xl"
                         >
                             {{ $page->siteName }}
                         </h1>

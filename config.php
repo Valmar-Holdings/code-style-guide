@@ -5,7 +5,7 @@ use Illuminate\Support\Str;
 return [
     "baseUrl" => "http://localhost:8000/",
     "production" => false,
-    "siteName" => "Code Style Guide",
+    "siteName" => "Development Standards",
     "siteDescription" => "as practiced in Valmar Holdings",
 
     // navigation menu
@@ -18,7 +18,7 @@ return [
     "isActiveParent" => function ($page, $menuItem) {
         if (is_object($menuItem) && $menuItem->children) {
             return $menuItem->children->contains(function ($child) use ($page) {
-                return trimPath($page->getPath()) == trimPath($child);
+                return trimPath($page->getPath()) === trimPath($child);
             });
         }
     },

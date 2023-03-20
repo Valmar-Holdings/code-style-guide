@@ -13,7 +13,7 @@
         >
         <meta
             name="description"
-            content="as practiced in Valmar Holdings"
+            content="Guide to creating and updating API documentation."
         >
 
         <meta
@@ -22,15 +22,15 @@
         />
         <meta
             property="og:title"
-            content="Testing | Development Standards"
+            content="API Documentation | Development Standards"
         />
         <meta
             property="og:description"
-            content="as practiced in Valmar Holdings"
+            content="Guide to creating and updating API documentation."
         />
         <meta
             property="og:url"
-            content="http://localhost:8000/docs/laravel/testing"
+            content="http://localhost:8000/docs/api-documentation"
         />
         <meta
             property="og:image"
@@ -54,7 +54,7 @@
             content="tighten_jigsaw_doc"
         >
 
-        <title>Development Standards | Testing</title>
+        <title>Development Standards | API Documentation</title>
 
         <link
             rel="home"
@@ -162,7 +162,7 @@
             <li class="pl-4">
             
         <a href="/docs/api-documentation"
-            class="lvl0   nav-menu__item hover:text-blue-500"
+            class="lvl0  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
         >
             API Documentation
         </a>
@@ -180,7 +180,7 @@
             <li class="pl-4">
             
         <a href="/docs/laravel"
-            class="lvl0 lvl0-active  nav-menu__item hover:text-blue-500"
+            class="lvl0   nav-menu__item hover:text-blue-500"
         >
             Laravel
         </a>
@@ -289,7 +289,7 @@
             <li class="pl-4">
             
         <a href="/docs/laravel/testing"
-            class="lvl1  active font-semibold text-blue-500 nav-menu__item hover:text-blue-500"
+            class="lvl1   nav-menu__item hover:text-blue-500"
         >
             Testing
         </a>
@@ -305,7 +305,7 @@
                 class="w-full pb-16 break-words DocSearch-content lg:w-3/5 lg:pl-4"
                 v-pre
             >
-                <h1>Testing</h1>
+                <h1>API Documentation</h1>
 
                                     <p
                         class="text-xs italic text-gray-400"
@@ -313,51 +313,33 @@
 
                         Last Updated:
                         <time
-                            datetime="2022-12-31 00:00:00"
+                            datetime="2023-03-20 00:00:00"
                         >
-                            31 Dec 2022
+                            20 Mar 2023
                         </time>
                     </p>
                 
-                <ul>
-<li>✋ Always write unit and integration tests, testing for success and failure for each scenario.</li>
-<li>🤔 Only test public methods of classes.</li>
-<li>✋ Write tests so that they cover all protected and private methods of the class, accessed through the public methods. If there are non-public methods that are not covered, they are either inaccessible, or the tests are comprehensive enough. If they are inaccessible, those methods should be removed.</li>
-<li>✋ Tests should document the functionality of classes and their methods.</li>
-<li>✋ Mock any external interfaces you do not control, and test for both successes and failures.</li>
-<li>✋ Do not mock classes that you control.</li>
-</ul>
-
-<h2>Databases</h2>
-
-<p>Do not use SQLite for testing if:
-  - you are using JSON fields
-  - require exact float value calculations based on decimal fields
-  - have table alterations in your migrations
-  - if you have raw queries which manipulate dates</p>
-
-<h2>Unit Tests</h2>
-
-<ul>
-<li>✋ Write unite tests before implementing classes (only implement classes, never procedural code).</li>
-<li>✋ When starting an app, start where you would start with writing code. The first test does not have to be elegant, or even correct. The most important thing is just to get started.</li>
-<li>✋ Always do Red/Green/Refactor TDD. This means writing tests for the code you would like to see in an optimal world. Then make the failing test pass using the minimum amount of code. Write another test to expand on the first test, which again makes the existing code fail. Refactor your code to make the second test pass. Rinse and repeat until you have the minimum necessary functionality for your MVP (minimum viable product).</li>
-<li>✋ During the red/green/refactor process, keep in mind that you need to develop from two different perspectives:
+                <h2>Setup &amp; Configuration</h2>
 
 <ol>
-<li>When writing tests, keep the larger picture of the application and business domain in mind.</li>
-<li>When writing code to satisfy tests, only think about the test that needs to be satisfied. DO NOT THINK ABOUT BUSINESS LOGIC, ONLY FOCUS ON MAKING TESTS GREEN.</li>
-</ol></li>
-<li>✋ Never add code that wont be used.</li>
-<li>✋ Remove any code that is not used.</li>
-<li>✋ Use cyclomatic complexity as a guide for the number of tests needed to achieve full test coverage of your code.</li>
-<li>✋ As your tests get more specific, your code should become more generic.</li>
-<li>✋ Goal of tests is to get as quickly as possible to &quot;Shameless Green&quot;, which means that no matter how ugly your code is, it satisfies all tests, thus is &quot;green&quot;.</li>
-<li>✋ One of the principles of Shameless Green is that code is written for understanding, rather than extreme adherence to any and all patterns. The human is the focus.</li>
-<li>✋ Consider Robert Martin&#39;s Transformation Priority Premise (<a href="https://8thlight.com/blog/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html">https://8thlight.com/blog/uncle-bob/2013/05/27/TheTransformationPriorityPremise.html</a>) when writing functional code to keep code complexity at a minimum. Try to opt for the highest ranked option.</li>
-<li>✋ Abstract logic into methods only if they are used multiple times. Otherwise this might introduce mental debt and increase code complexity.</li>
-<li>✋ Consider waiting to dry out duplicated code until after a few tests cover it. This way the correct abstraction might reveal itself, rather than prematurely abstracting it out incorrectly.</li>
-</ul>
+<li><a href="https://stoplight.io/studio">Download Stoplight Studio</a>.</li>
+<li>Create or login to your free account using your personal email address.</li>
+<li>Create a <strong>New Local Project</strong> (important to not create a Git project) and give it a name, for example <code>Totality</code> or <code>CarQuant</code>. Do not check "Include tutorial files?"</li>
+<li>Click the pink "API" button, set the name to <code>openapi.json</code>, set the version to <code>3.1</code>, set the format to <code>JSON</code>, and click the "Create" button.</li>
+</ol>
+
+<h2>Editing</h2>
+
+<ol>
+<li>Copy the content from <code>/resources/docs/openapi.json</code> (in VSCode).</li>
+<li>Open your Stoplight Studio project (if not already open).</li>
+<li>Click the "&lt;/> Code" button at the top-right of the screen.</li>
+<li>Highlight all code and replace it with the code you copied from step 1.</li>
+<li>Click the "Form" button (next to the "&lt;/> Code" button).</li>
+<li>Make any desired changes and resolve all errors.</li>
+<li>Once done, toggle back to the code view, copy the entire code, and paste the code back into <code>/resources/docs/openapi.json</code> (in VSCode).</li>
+<li>Run <code>cu</code> (composer update) in your terminal.</li>
+</ol>
 
                 <div
                     class="flex flex-col gap-2 pt-2 mt-8 text-sm italic border-t border-gray-300"

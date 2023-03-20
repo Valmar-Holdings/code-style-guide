@@ -6,7 +6,6 @@ section: content
 updatedAt: 2023-03-20
 ---
 ## Setup & Configuration
-
 1. [Download Stoplight Studio](https://stoplight.io/studio).
 2. Create or login to your free account using your personal email address.
 3. Create a **New Local Project** (important to not create a Git project) and give it a name, for example `Totality` or `CarQuant`. Do not check "Include tutorial files?"
